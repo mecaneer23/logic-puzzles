@@ -27,4 +27,5 @@ def even_fib_sum() -> int:
 
     return even_sum
 
+
 print(even_fib_sum())
