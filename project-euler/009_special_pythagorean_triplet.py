@@ -2,6 +2,9 @@
 """https://projecteuler.net/problem=9"""
 
 
+from math import sqrt
+
+
 def is_pythagorean_triplet(a: int, b: int, c: int) -> bool:
     """
     Returns whether (a, b, c) is a valid Pythagorean triplet
@@ -20,7 +23,17 @@ def special_pythagorean_triplet(target: int) -> int:
     Example: f(12) -> 3 + 4 + 5 -> 3^2 + 4^2 = 5^2 -> 3 * 4 * 5 -> 60
     Example: f(1000) -> 200 + 375 + 425 -> 200^2 + 375^2 = 425^2 -> 200 * 375 * 425 -> 31875000
     """
-    return brute_force(target)
+    for c in range(target // 2, 2, -1):
+        for b in range(c - 1, 2, -1):
+            possible_a = sqrt(c**2 - b**2)
+            a = int(possible_a)
+            if possible_a != a:
+                continue
+            if a > b:
+                break
+            if a**2 + b**2 == c**2 and a + b + c == target:
+                return a * b * c
+    return 0
 
 
 def brute_force(target: int) -> int:
