@@ -2,6 +2,8 @@
 
 # https://projecteuler.net/problem=11
 
+# from collections import deque
+
 GRID: list[list[int]] = [
     [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
     [49, 49, 99, 40, 17, 81, 18, 57, 60, 87, 17, 40, 98, 43, 69, 48, 4, 56, 62, 0],
@@ -57,6 +59,17 @@ def get_largest_grid_product(grid: list[list[int]], window_size: int) -> int:
     )
 
     # check top-left/bottom-right diagonals
+    # group: deque[int] = deque()
+    # for i in range(len(grid)):
+    #     for j in range(len(grid)):
+    #         group.append(grid[i][j])
+    #         if len(group) == window_size:
+    #             current_product = 1
+    #             for element in group:
+    #                 current_product *= element
+    #             if current_product > max_product:
+    #                 max_product = current_product
+    #             group.popleft()
 
     # check bottom-left/top-right diagonals
     return max_product
