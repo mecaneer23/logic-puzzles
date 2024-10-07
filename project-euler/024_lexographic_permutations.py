@@ -4,6 +4,7 @@
 
 from itertools import permutations
 
+
 def get_lexographic_permutations() -> int:
     """
     Return the millionth lexographic permutation
@@ -16,5 +17,6 @@ def get_lexographic_permutations() -> int:
                 final_num += digit * 10**idx
             return final_num
     return 0
+
 
 print(get_lexographic_permutations())
