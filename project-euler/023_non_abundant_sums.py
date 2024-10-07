@@ -22,6 +22,17 @@ def get_abundant_numbers() -> set[int]:
     return abundant_numbers
 
 
+def is_sum_of_abundant_numbers(abundant_numbers: set[int], num: int) -> bool:
+    """
+    Return whether a number can be written
+    as a sum of two abundant numbers
+    """
+    for abundant in abundant_numbers:
+        if num - abundant in abundant_numbers:
+            return True
+    return False
+
+
 def get_non_abundant_sum() -> int:
     """
     Return the sum of all positive integers which
@@ -32,10 +43,7 @@ def get_non_abundant_sum() -> int:
 
     total = 0
     for i in range(1, 28_123 + 1):
-        for abundant in abundant_numbers:
-            if i - abundant in abundant_numbers:
-                break
-        else:  # TODO: refactor to avoid using for-else
+        if is_sum_of_abundant_numbers(abundant_numbers, i):
             total += i
     return total
 
