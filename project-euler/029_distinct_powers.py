@@ -16,5 +16,6 @@ def get_distinct_powers_count(upper_bound: int) -> int:
             seen.add(a**b)
     return len(seen)
 
+
 print(get_distinct_powers_count(5))
 print(get_distinct_powers_count(100))
