@@ -20,7 +20,7 @@ def average_char(string: str) -> str:
     return chr(round(char_sum / length) + lowercase_offset)
 
 
-# average_char = lambda s:chr(round(sum(ord(c)-96 for c in s.lower()if c.isalpha())/sum(c.isalpha()for c in s))+96)
+# average_char = lambda s:chr(round(sum(ord(c)-96 for c in s.lower()if c.isalpha())/sum(map(str.isalpha,s)))+96)
 
 
 assert average_char("a") == "a", average_char("a")
