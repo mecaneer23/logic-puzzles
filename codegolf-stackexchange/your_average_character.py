@@ -13,11 +13,14 @@ def average_char(string: str) -> str:
     lowercase_offset = 96
     char_sum = 0
     length = 0
-    for char in string:
+    for char in string.lower():
         if char.isalpha():
             length += 1
-            char_sum += ord(char.lower()) - lowercase_offset
+            char_sum += ord(char) - lowercase_offset
     return chr(round(char_sum / length) + lowercase_offset)
+
+
+# average_char = lambda s:chr(round(sum(ord(c)-96 for c in s.lower()if c.isalpha())/sum(c.isalpha()for c in s))+96)
 
 
 assert average_char("a") == "a", average_char("a")
