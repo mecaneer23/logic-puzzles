@@ -4,6 +4,7 @@
 
 from functools import cache
 
+
 @cache
 def factorial(num: int) -> int:
     """Return the factorial of `num`"""
@@ -23,7 +24,8 @@ def get_digit_factorials() -> int:
         if digit_factorial_sum == counter:
             total += counter
         counter += 1
-        if counter > 1_000_000:  # TODO: arbitrary stopping point; how can we detect the true end?
+        # TODO: arbitrary stopping point; how can we detect the true end?
+        if counter > 1_000_000:
             return total
 
 
