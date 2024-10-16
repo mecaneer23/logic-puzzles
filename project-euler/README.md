@@ -12,12 +12,12 @@
 
 ## Skipped problems
 
-- 017
-- 018
-- 019
-- 026
-- 027
-- 028
-- 031
-- 032
-- 033
+- 017_number_letter_counts.py
+- 018_maximum_path_sum_i.py
+- 019_counting_sundays.py
+- 026_reciprocal_cycles.py
+- 027_quadratic_primes.py
+- 028_number_spiral_diagonals.py
+- 031_coin_sums.py
+- 032_pandigital_products.py
+- 033_digit_cancelling_fractions.py
