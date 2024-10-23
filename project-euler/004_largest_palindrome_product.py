@@ -21,12 +21,13 @@ def largest_palindrome_product(digits: int) -> int:
 
     Example: f(2) -> (91, 99) -> 9009
     """
+    largest_found = 0
     for i in range(10**digits - 1, 10 ** (digits - 1), -1):
         for j in range(10**digits - 1, 10 ** (digits - 1), -1):
             product = i * j
-            if is_palindrome(product):
-                return product
-    return 0
+            if is_palindrome(product) and product > largest_found:
+                largest_found = product
+    return largest_found
 
 
 print(largest_palindrome_product(2))
