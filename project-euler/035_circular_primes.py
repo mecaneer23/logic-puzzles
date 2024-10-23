@@ -2,10 +2,11 @@
 
 # https://projecteuler.net/problem=35
 
-from itertools import permutations
+from functools import cache
 from math import sqrt
 
 
+@cache
 def is_prime(num: int) -> bool:
     """Returns whether a given number is prime"""
     if num < 2:
@@ -16,11 +17,16 @@ def is_prime(num: int) -> bool:
     return True
 
 
+def rotations(string: str) -> tuple[str, ...]:
+    """Returns all rotations of a given string"""
+    return tuple(string[i:] + string[:i] for i in range(len(string)))
+
+
 def is_circular_prime(num: int) -> bool:
     """Returns whether a given number is a circular prime"""
     if not is_prime(num):
         return False
-    for permutation in permutations(str(num)):
+    for permutation in rotations(str(num)):
         possible_prime = 0
         for idx, digit in enumerate(reversed(permutation)):
             possible_prime += int(digit) * 10**idx

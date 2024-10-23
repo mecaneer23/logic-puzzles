@@ -10,6 +10,8 @@
 | 012     | Extremely slow - unclear if it works fully     |
 | 015     | I'm a bit stuck on the actual math             |
 | 023     | Doesn't work... unclear why not                |
+| 030     | Doesn't work...                                |
+| 034     | Doesn't work...                                |
 
 ## Skipped problems
 
