@@ -9,7 +9,6 @@
 | 011     | Incomplete - diagonal checking not implemented |
 | 012     | Extremely slow - unclear if it works fully     |
 | 015     | I'm a bit stuck on the actual math             |
-| 034     | Doesn't work...                                |
 | 050     | Struggling to understand how the math works    |
 
 ## Skipped problems

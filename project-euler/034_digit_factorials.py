@@ -9,13 +9,14 @@ from functools import cache
 def factorial(num: int) -> int:
     """Return the factorial of `num`"""
     if num <= 1:
-        return num
+        return 1
     return num * factorial(num - 1)
 
 
 def get_digit_factorials() -> int:
     """
-    Return the sum of all numbers equal to the sum of the factorial of their digits
+    Return the sum of all numbers equal to the
+    sum of the factorial of their digits
     """
     total = 0
     counter = 3
