@@ -12,6 +12,7 @@
 | 023     | Doesn't work... unclear why not                |
 | 030     | Doesn't work...                                |
 | 034     | Doesn't work...                                |
+| 050     | Struggling to understand how the math works    |
 
 ## Skipped problems
 
