@@ -43,7 +43,7 @@ def get_non_abundant_sum() -> int:
 
     total = 0
     for i in range(1, 28_123 + 1):
-        if is_sum_of_abundant_numbers(abundant_numbers, i):
+        if not is_sum_of_abundant_numbers(abundant_numbers, i):
             total += i
     return total
 
