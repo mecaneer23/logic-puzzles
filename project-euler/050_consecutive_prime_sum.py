@@ -37,6 +37,25 @@ def get_longest_consecutive_prime_sum_below(upper_bound: int) -> int:
         f(100) -> (2, 3, 5, 7, 11, 13) -> 41
         f(1000) -> 21 terms -> 953
     """
+    width = 1
+    primes = get_primes_below(upper_bound)
+    # increase width until current_sum > upper_bound
+    while True:
+        if sum(primes[:width]) >= upper_bound:
+            width -= 1
+            break
+        width += 1
+    primes = primes[:width]
+    while True:
+        # check all groups of current width
+        for start in range(len(primes) - width, -1, -1):
+            current_sum = sum(primes[start : start + width])
+            if is_prime(current_sum):
+                return current_sum
+        width -= 1
+
+
+def attempt_3(upper_bound: int) -> int:
     primes = get_primes_below(upper_bound)
     prime_count = len(primes)
     max_sum = 0
@@ -99,4 +118,4 @@ def attempt_1(upper_bound: int) -> int:
 
 print(get_longest_consecutive_prime_sum_below(100))
 print(get_longest_consecutive_prime_sum_below(1000))
-# print(get_longest_consecutive_prime_sum_below(1_000_000))
+print(get_longest_consecutive_prime_sum_below(1_000_000))
