@@ -24,4 +24,3 @@
 - 033_digit_cancelling_fractions.py
 - 038_pandigital_multiples.py
 - 039_integer_right_triangles.py
-- 044_pentagon_numbers.py
