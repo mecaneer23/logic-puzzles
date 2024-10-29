@@ -31,7 +31,7 @@ def special_pythagorean_triplet(target: int) -> int:
                 continue
             if a > b:
                 break
-            if a**2 + b**2 == c**2 and a + b + c == target:
+            if a + b + c == target and is_pythagorean_triplet(a, b, c):
                 return a * b * c
     return 0
 
