@@ -22,4 +22,3 @@
 - 032_pandigital_products.py
 - 033_digit_cancelling_fractions.py
 - 038_pandigital_multiples.py
-- 039_integer_right_triangles.py
