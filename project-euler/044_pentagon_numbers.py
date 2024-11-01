@@ -13,8 +13,7 @@ def is_pentagonal(num: int) -> int:
     """
     if num < 1:
         return False
-    solution = (1 + sqrt(1 + 24 * num)) / 6
-    return solution == int(solution)
+    return ((1 + sqrt(1 + 24 * num)) / 6).is_integer()
 
 
 def get_pentagon_difference() -> int:

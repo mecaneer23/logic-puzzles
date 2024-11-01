@@ -11,8 +11,7 @@ def is_pentagonal(num: int) -> bool:
 
     True examples: 1, 5, 12, 22, 35
     """
-    solution = (1 + sqrt(1 + 24 * num)) / 6
-    return int(solution) == solution
+    return ((1 + sqrt(1 + 24 * num)) / 6).is_integer()
 
 
 def is_hexagonal(num: int) -> bool:
@@ -21,8 +20,7 @@ def is_hexagonal(num: int) -> bool:
 
     True examples: 1, 6, 15, 28, 45
     """
-    solution = (1 + sqrt(1 + 8 * num)) / 4
-    return int(solution) == solution
+    return ((1 + sqrt(1 + 8 * num)) / 4).is_integer()
 
 
 def get_tri_pent_hex_numbers(n: int) -> int:

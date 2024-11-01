@@ -11,10 +11,7 @@ def is_triangle_number(num: int) -> bool:
     Return whether a given number is
     a triangle number
     """
-    # TODO: I don't think I need both possible solutions
-    solution_a = -(1 - sqrt(1 + 8 * num)) / 2
-    solution_b = -(1 + sqrt(1 + 8 * num)) / 2
-    return int(solution_a) == solution_a or int(solution_b) == solution_b
+    return (-(1 - sqrt(1 + 8 * num)) / 2).is_integer()
 
 
 def get_coded_triangle_word_amount() -> int:

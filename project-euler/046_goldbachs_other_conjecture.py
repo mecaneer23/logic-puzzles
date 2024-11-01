@@ -25,8 +25,7 @@ def can_be_sum_of_prime_and_twice_square(num: int) -> bool:
     possible_prime = num - 2
     while True:
         if is_prime(possible_prime):
-            solution = sqrt((num - possible_prime) // 2)
-            if solution == int(solution):
+            if sqrt((num - possible_prime) // 2).is_integer():
                 return True
         possible_prime -= 2
         if possible_prime < 2:
