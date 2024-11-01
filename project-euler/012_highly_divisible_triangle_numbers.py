@@ -2,6 +2,8 @@
 
 # https://projecteuler.net/problem=12
 
+from math import sqrt
+
 
 def get_num_factors(num: int) -> int:
     """
@@ -9,9 +11,11 @@ def get_num_factors(num: int) -> int:
     has, including 1 and itself
     """
     factors = 0
-    for possible_factor in range(1, num + 1):
+    for possible_factor in range(1, int(sqrt(num)) + 1):
         if num % possible_factor == 0:
             factors += 1
+            if possible_factor != num // possible_factor:
+                factors += 1
     return factors
 
 
