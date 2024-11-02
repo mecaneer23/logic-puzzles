@@ -8,13 +8,13 @@
 | ------- | ---------------------------------------------- |
 | 011     | Incomplete - diagonal checking not implemented |
 | 015     | I'm a bit stuck on the actual math             |
+| 026     | Don't know how to implement the important func |
 
 ## Skipped problems
 
 - 017_number_letter_counts.py
 - 018_maximum_path_sum_i.py
 - 019_counting_sundays.py
-- 026_reciprocal_cycles.py
 - 027_quadratic_primes.py
 - 031_coin_sums.py
 - 032_pandigital_products.py
