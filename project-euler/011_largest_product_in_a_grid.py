@@ -2,7 +2,6 @@
 
 # https://projecteuler.net/problem=11
 
-# from collections import deque
 
 GRID: list[list[int]] = [
     [8, 2, 22, 97, 38, 15, 0, 40, 0, 75, 4, 5, 7, 78, 52, 12, 50, 77, 91, 8],
@@ -28,7 +27,11 @@ GRID: list[list[int]] = [
 ]
 
 
-def check_horizontals(grid: list[list[int]], window_size: int, max_product: int) -> int:
+def check_horizontals(
+    grid: list[list[int]],
+    window_size: int,
+    max_product: int,
+) -> int:
     """Return max product for horizontal checks only"""
     grid_size = len(grid)
 
@@ -37,8 +40,24 @@ def check_horizontals(grid: list[list[int]], window_size: int, max_product: int)
             current_product = 1
             for element in row[window_start : window_start + window_size]:
                 current_product *= element
-            if current_product > max_product:
-                max_product = current_product
+            max_product = max(current_product, max_product)
+    return max_product
+
+
+def check_nw_se_diagonal(
+    grid: list[list[int]],
+    window_size: int,
+    max_product: int,
+) -> int:
+    """Return max product for diagonal checks in the NW-SE direction"""
+    grid_size = len(grid)
+
+    for i in range(grid_size - window_size):
+        for j in range(grid_size - window_size):
+            current_product = 1
+            for element in (grid[i + count][j + count] for count in range(window_size)):
+                current_product *= element
+            max_product = max(current_product, max_product)
     return max_product
 
 
@@ -58,20 +77,14 @@ def get_largest_grid_product(grid: list[list[int]], window_size: int) -> int:
         max_product,
     )
 
-    # check top-left/bottom-right diagonals
-    # group: deque[int] = deque()
-    # for i in range(len(grid)):
-    #     for j in range(len(grid)):
-    #         group.append(grid[i][j])
-    #         if len(group) == window_size:
-    #             current_product = 1
-    #             for element in group:
-    #                 current_product *= element
-    #             if current_product > max_product:
-    #                 max_product = current_product
-    #             group.popleft()
+    max_product = check_nw_se_diagonal(grid, window_size, max_product)
 
-    # check bottom-left/top-right diagonals
+    max_product = check_nw_se_diagonal(
+        list(zip(*grid[::-1])),  # type: ignore[arg-type]
+        window_size,
+        max_product,
+    )
+
     return max_product
 
 
