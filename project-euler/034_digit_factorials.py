@@ -26,7 +26,7 @@ def get_digit_factorials() -> int:
             total += counter
         counter += 1
         # TODO: arbitrary stopping point; how can we detect the true end?
-        if counter > 1_000_000:
+        if counter > 50_000:
             return total
 
 
