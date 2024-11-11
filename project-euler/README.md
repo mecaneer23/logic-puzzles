@@ -11,7 +11,6 @@
 
 ## Skipped problems
 
-- 018_maximum_path_sum_i.py
 - 019_counting_sundays.py
 - 027_quadratic_primes.py
 - 031_coin_sums.py

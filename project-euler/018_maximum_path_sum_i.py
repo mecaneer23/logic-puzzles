@@ -37,7 +37,6 @@ def maximum_path_sum(triangle: list[str]) -> int:
         total += chosen
         if chosen == right:
             current_position += 1
-        continue
     return total + max(
         islice(
             map(int, triangle[-1].split()),
