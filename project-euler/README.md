@@ -7,7 +7,6 @@
 | Problem | Information                                    |
 | ------- | ---------------------------------------------- |
 | 015     | I'm a bit stuck on the actual math             |
-| 026     | Don't know how to implement the important func |
 
 ## Skipped problems
 

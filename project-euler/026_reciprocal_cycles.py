@@ -2,7 +2,7 @@
 
 # https://projecteuler.net/problem=26
 
-from decimal import Decimal
+from decimal import Decimal, getcontext
 
 
 def get_recurring_cycle_length(denominator: int) -> int:
@@ -15,19 +15,15 @@ def get_recurring_cycle_length(denominator: int) -> int:
         f(6) -> 1/6 -> 0.166666 -> 1
         f(7) -> 1/7 -> 0.14285714285 -> 6
     """
-    # digits = (Decimal(1) / Decimal(denominator)).as_tuple().digits
-    raise NotImplementedError("actual algorithm")  # TODO: implement this
-    next_divisor = Decimal(1)
-    dividend = Decimal(denominator)
-    seen_divisors: list[Decimal] = []
-    while True:
-        print(seen_divisors)
-        if next_divisor == Decimal(0):
-            return len(seen_divisors)
-        if next_divisor in seen_divisors:
-            return len(seen_divisors[seen_divisors.index(next_divisor) - 1 :])
-        seen_divisors.append(next_divisor)
-        next_divisor = (dividend % next_divisor) * 10
+    getcontext().prec = 5000  # TODO: fix arbitarily large amount of digits
+    digits = (Decimal(1) / Decimal(denominator)).as_tuple().digits
+    for start in range(len(digits)):
+        pattern: list[int] = []
+        for i, digit in enumerate(digits[start:]):
+            if digits[i:i+len(pattern)] == tuple(pattern) and len(pattern) > 0:
+                return len(pattern)
+            pattern.append(digit)
+    return 0
 
 
 def get_longest_reciprocal_cycle_under(upper_bound: int) -> int:
