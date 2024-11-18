@@ -13,7 +13,6 @@ def get_heegner_num() -> int:
     """
     min_diff = 1
     min_n = 0
-    differences = []
     for n in range(-10**3, 10**3 + 1):
         square_root = sqrt(n)
         square_root = square_root.real + square_root.imag
