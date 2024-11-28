@@ -2,33 +2,23 @@
 
 # https://projecteuler.net/problem=69
 
-from functools import cache
-from math import sqrt
 
-
-@cache
-def get_factors(num: int) -> set[int]:
-    """Return a set of the factors of `num`"""
-    factors: set[int] = set()
-    for possible_factor in range(1, int(sqrt(num)) + 1):
-        if num % possible_factor == 0:
-            factors.add(possible_factor)
-            factors.add(num // possible_factor)
-    return factors
-
-
-def totient(n: int) -> int:
+def get_totient_sieve(upper_bound: int) -> list[int]:
     """
-    Return the number of prime integers < `n`
-    which don't have any shared factors with `n`
-    other than `1`
+    Computes the totient function for all
+    numbers from 1 to `upper_bound`
+    using a sieve method
+
+    This method required significant research
+    compared to the simpler gcf method (see
+    git blame for this file)
     """
-    factors_of_n = get_factors(n)
-    total = 0
-    for i in range(1, n):
-        if factors_of_n & get_factors(i) == {1}:
-            total += 1
-    return total
+    totients: list[float] = list(range(upper_bound + 1))
+    for possible_prime in range(2, upper_bound + 1):
+        if totients[possible_prime] == possible_prime:
+            for multiple in range(possible_prime, upper_bound + 1, possible_prime):
+                totients[multiple] *= 1 - 1 / possible_prime
+    return list(map(int, totients))
 
 
 def get_max_n_over_totient_n(upper_bound: int) -> int:
@@ -37,10 +27,11 @@ def get_max_n_over_totient_n(upper_bound: int) -> int:
 
     Example: f(10) -> 3 -> 6
     """
+    totient = get_totient_sieve(upper_bound)
     max_totient = 0
     max_n = 0
     for n in range(2, upper_bound + 1):
-        totient_n = n / totient(n)
+        totient_n = n / totient[n]
         if totient_n > max_totient:
             max_totient = totient_n
             max_n = n
