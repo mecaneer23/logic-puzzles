@@ -2,12 +2,6 @@
 
 [Project Euler](https://projecteuler.net/archives)
 
-## Additional information (nonfunctional solutions)
-
-| Problem | Information                                    |
-| ------- | ---------------------------------------------- |
-| 015     | I'm a bit stuck on the actual math             |
-
 ## Skipped problems
 
 - 027_quadratic_primes.py
