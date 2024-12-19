@@ -4,7 +4,6 @@
 
 ## Skipped problems
 
-- 027_quadratic_primes.py
 - 031_coin_sums.py
 - 032_pandigital_products.py
 - 033_digit_cancelling_fractions.py
