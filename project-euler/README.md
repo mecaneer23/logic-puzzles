@@ -8,7 +8,6 @@
 - 032_pandigital_products.py
 - 033_digit_cancelling_fractions.py
 - 051_prime_digit_replacements.py
-- 054_poker_hands.py
 - 60
 - 61
 - 62
